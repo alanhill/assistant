@@ -3,21 +3,5 @@ development:
   encoding: unicode
   database: phone_development
   pool: 5
-  username: 
-  password:
-
-test:
-  adapter: postgresql
-  encoding: unicode
-  database: phone_test
-  pool: 5
-  username:
-  password:
-
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: phone_production
-  pool: 5
   username:
   password:

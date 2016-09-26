@@ -1,4 +1,11 @@
+require 'twilio-ruby'
 class BuzzerController < ApplicationController
+
+    include Webhookable
+
+  after_filter :set_header
+
+  skip_before_action :verify_authenticity_token
     # set up a client to talk to the Twilio REST API
     @client = Twilio::REST::Client.new(ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN'])
 
@@ -23,9 +30,11 @@ class BuzzerController < ApplicationController
     end
 
     def buzz_answerer
-      Twilio::TwiML::Response.new do |r|
+      response = Twilio::TwiML::Response.new do |r|
         r.Say "Hello!"
-      end.text
+      end
+
+      render_twiml response
     end
 
     def answering_machine

@@ -9,7 +9,6 @@ class BuzzerController < ApplicationController
     @client = Twilio::REST::Client.new(ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN'])
 
   def index
-    @calls = @client.calls.list()
   end
 
   def buzz_handler

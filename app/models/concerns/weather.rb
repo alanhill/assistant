@@ -16,8 +16,8 @@ module Weather
 
   def translate_weather_response(weather)
     weather.each do |w|
-     @weather = "#{w['main']} - #{w['description']}"
-   end
+      @weather = "#{w['main']} - #{w['description']}"
+    end
 
    @weather
   end

@@ -1,2 +1,0 @@
-class AssistantController < ApplicationController
-end

@@ -44,19 +44,6 @@ class BuzzerController < ApplicationController
   render_twiml response
   end
 
-    def buzz_answerer
-      response = Twilio::TwiML::Response.new do |r|
-        r.Say "Hello!"
-        r.Play 'http://demo.twilio.com/hellomonkey/monkey.mp3'
-        r.Gather :numDigits => '4', :action => '/buzzer/buzz_handler', :method => 'post' do |g|
-          g.Say 'Enter the code if you have it'
-          g.Say 'Or press 0000 to reach me if you do not'
-        end
-      end
-
-      render_twiml response
-    end
-
   def answering_machine
     response = Twilio::TwiML::Response.new do |r|
       r.Say "Hey you've reached Alan but I can't get ya at the moment, leave a message!"

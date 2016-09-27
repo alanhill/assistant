@@ -59,14 +59,11 @@ class BuzzerController < ApplicationController
   def sms
     body = params['Body'].downcase
 
-    twiml = Twilio::TwiML::Response.new do |r|
-      if body == "weather"
-        r.Message Assistant.new.weather
-      elsif body == "bye"
-        r.Message "Goodbye"
-      end
+    response = Twilio::TwiML::Response.new do |r|
+      weather = Assistant.new.weather
+      r.Message "#{weather}"
     end
 
-    twiml.text
+    render_twiml response
   end
 end

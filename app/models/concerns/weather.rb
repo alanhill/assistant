@@ -28,6 +28,6 @@ module Weather
     sunrise = Time.at(times_of_day['sunrise'])
     sunset = Time.at(times_of_day['sunset'])
 
-    "Sunrise is at #{sunrise.hour}:#{sunrise.min}:#{sunrise.sec}, sunset is at #{sunset.hour}:#{sunset.min}:#{sunset.sec} today"
+    "Sunrise is at #{sunrise.hour}:#{sunrise.min}:#{sunrise.sec}, sunset is at #{sunset.hour}:#{sunset.min}:#{sunset.sec}"
   end
 end

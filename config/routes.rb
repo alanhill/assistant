@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  root 'assistant#index'
-  post '/call', to: 'assistant#buzz_answerer'
-  post 'assistant/buzz_handler', to: 'assistant#buzz_handler'
-  post 'assistant/answering_machine', to: 'assistant#answering_machine'
-  post 'assistant/handle_recorded_message', to: 'assistant#handle_recorded_message'
-  post '/sms', to: 'assistant#sms'
+  root 'phone#index'
+  post '/call', to: 'phone#buzz_answerer'
+  post 'phone/buzz_handler', to: 'phone#buzz_handler'
+  post 'phone/answering_machine', to: 'phone#answering_machine'
+  post 'phone/handle_recorded_message', to: 'phone#handle_recorded_message'
+  post '/sms', to: 'phone#sms'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

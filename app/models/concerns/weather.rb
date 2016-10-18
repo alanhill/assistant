@@ -21,7 +21,7 @@ module Weather
   end
 
   def translate_temperature_response(temperature)
-    "#{temperature['temp']} degrees celcius on the day"
+    "Them temp is #{temperature['temp']} degrees celcius."
   end
 
   def translate_sunrise_sunset_response(times_of_day)

@@ -11,10 +11,10 @@ class PhoneController < ApplicationController
   def buzz_handler
     redirect_to '/call' unless params['Digits'].present?
 
-    if params['Digits'] == '1010'
+    if params['Digits'] == '1313'
       response = Twilio::TwiML::Response.new do |r|
         r.Say 'Buzzing you in!'
-        r.Dial '1'
+        r.Dial '9'
       end
     elsif params['Digits'] == '0000'
       response = Twilio::TwiML::Response.new do |r|

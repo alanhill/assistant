@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/index'
+
   root 'phone#index'
   post '/call', to: 'phone#buzz_answerer'
   post 'phone/buzz_handler', to: 'phone#buzz_handler'

@@ -9,30 +9,16 @@ class PhoneController < ApplicationController
   end
 
   def buzz_handler
-    redirect_to '/call' unless params['Digits'].present?
 
-    if params['Digits'] == '1'
-      response = Twilio::TwiML::Response.new do |r|
-        r.Say 'Testing..'
-        r.Dial '9'
-      end
-    elsif params['Digits'] == '0'
-      response = Twilio::TwiML::Response.new do |r|
-        r.Say 'One moment..'
-        r.Dial ENV['MY_NUMBER']
-      end
-    end
-
-    render_twiml response
   end
 
   def buzz_answerer
     response = Twilio::TwiML::Response.new do |r|
-      r.Say "Hello!"
-      r.Gather numDigits: '1', action: '/phone/buzz_handler', method: 'post'
-  end
+      r.Say 'One moment..'
+      r.Dial ENV['MY_NUMBER']
+    end
 
-  render_twiml response
+    render_twiml response
   end
 
   def answering_machine

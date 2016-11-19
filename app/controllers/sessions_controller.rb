@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
     name = auth_hash['info']['name']
     @user = User.create_with(name: name).find_or_create_by(email: email)
     session[:user_id] = @user.id
+    @user.update_column(:last_login, Time.now)
     flash[:notice] = "Account for #{name} successfully created."
     redirect_to root_path
   end

@@ -1,0 +1,41 @@
+<h1>LogViewer</h1>
+<table>
+  <theader>
+    <th>
+      Type
+    </th>
+    <th>
+      From
+    </th>
+    <th>
+      SID
+    </th>
+    <th>
+      Status
+    </th>
+    <th>
+      Where From
+    </th>
+  </theader>
+  <tbody>
+    <% @phone_logs.each do |phone| %>
+    <tr>
+      <td>
+        <%= phone.incoming_type %>
+      </td>
+      <td>
+        <%= phone.phone_number %>
+      </td>
+      <td>
+        <%= phone.sid %>
+      </td>
+      <td>
+        <%= phone.status %>
+      </td>
+      <td>
+        <%= phone.from_city %> <%= phone.from_state %> <%= phone.from_country %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

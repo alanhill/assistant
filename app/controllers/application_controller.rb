@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
   def require_login
     redirect_to root_path, notice: 'You must be signed in to access this page'  unless current_user
   end
+
+  def require_admin
+    redirect_to root_path, notice: 'You must be an admin in order to access this page'  unless current_user.admin
+  end
 end

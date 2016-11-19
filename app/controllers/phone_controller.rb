@@ -9,6 +9,8 @@ class PhoneController < ApplicationController
   end
 
   def buzz_answerer
+    PhoneLog.call(params)
+
     response = Twilio::TwiML::Response.new do |r|
       r.Say 'One moment..'
       r.Dial ENV['MY_NUMBER']
@@ -31,6 +33,8 @@ class PhoneController < ApplicationController
   end
 
   def sms
+    PhoneLog.sms(params)
+
     body = params['Body'].downcase
 
     response = Twilio::TwiML::Response.new do |r|

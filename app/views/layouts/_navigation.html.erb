@@ -22,7 +22,7 @@
                 </li>
                 <% if current_user && current_user.admin %>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My things
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Toys
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
@@ -30,7 +30,7 @@
                             <%= link_to 'Phone Logs', log_viewer_index_path %>
                         </li>
                         <li>
-                            <a href="#">Another action</a>
+                            <%= link_to 'To do\'s', todos_path %>
                         </li>
                         <li>
                             <a href="#">Something else here</a>

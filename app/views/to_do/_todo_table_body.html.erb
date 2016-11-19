@@ -1,0 +1,21 @@
+<tbody>
+    <% @to_dos.each do |task| %>
+    <tr>
+        <td>
+            <%= task.title %>
+        </td>
+        <td>
+            <%= task.description %>
+        </td>
+        <td>
+            <%= task.due.strftime('%A %b %d at %l:%M%P') %>
+        </td>
+        <td>
+            <%= task.completed %>
+        </td>
+        <td>
+            <%=task.created_at.strftime('%A %b %d at %l:%M%P') %>
+        </td>
+    </tr>
+    <% end %>
+</tbody>

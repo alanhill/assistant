@@ -5,11 +5,7 @@ class PhoneController < ApplicationController
   after_filter :set_header
   skip_before_action :verify_authenticity_token
 
-  def index
-  end
-
   def buzz_handler
-
   end
 
   def buzz_answerer

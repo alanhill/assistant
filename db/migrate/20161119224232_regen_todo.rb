@@ -1,4 +1,4 @@
-class CreateToDos < ActiveRecord::Migration[5.0]
+class RegenTodo < ActiveRecord::Migration[5.0]
   def change
     create_table :to_dos do |t|
       t.string :title
@@ -8,6 +8,5 @@ class CreateToDos < ActiveRecord::Migration[5.0]
       t.references :user, foreign_key: true
 
       t.timestamps
-    end
   end
 end

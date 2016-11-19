@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :to_do
   get 'home/index'
+  get 'todos', to: 'to_do#html_index'
   get 'log_viewer/index'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')

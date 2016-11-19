@@ -1,7 +1,13 @@
 class ToDoController < ApplicationController
   include FriendlyDatetime
   before_action :set_to_do, only: [:show, :edit, :update, :destroy]
-  skip_before_filter :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
+  before_action :require_login, only: :html_index
+  before_action :authenticate, except: :html_index
+
+  def html_index
+    @to_dos = ToDo.all.order(created_at: :desc)
+  end
 
   def index
     if params[:limit].present?
@@ -20,7 +26,6 @@ class ToDoController < ApplicationController
   def create
     datetime = FriendlyDatetime.parse_date(to_do_params[:due])
     params[:due] = datetime
-
     @to_do = ToDo.new(to_do_params)
     respond_to do |format|
       if @to_do.save
@@ -36,7 +41,6 @@ class ToDoController < ApplicationController
   def update
     datetime = FriendlyDatetime.parse_date(to_do_params[:due])
     params[:due] = datetime
-
     respond_to do |format|
       if @to_do.update(to_do_params)
         format.html { redirect_to @to_do, notice: 'ToDo was successfully updated.' }
@@ -64,5 +68,9 @@ class ToDoController < ApplicationController
 
     def to_do_params
       params.require(:to_do).permit(:title, :description, :due)
+    end
+
+    def authenticate
+      head :forbidden unless params[:token] == ENV['API_SECRET']
     end
 end

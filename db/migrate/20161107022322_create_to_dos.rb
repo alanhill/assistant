@@ -5,6 +5,7 @@ class CreateToDos < ActiveRecord::Migration[5.0]
       t.text :description
       t.boolean :completed, default: false
       t.datetime :due
+      t.references :user, foreign_key: true
 
       t.timestamps
     end

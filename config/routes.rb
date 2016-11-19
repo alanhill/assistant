@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'log_viewer/index'
+
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
@@ -11,7 +13,6 @@ Rails.application.routes.draw do
   post 'phone/answering_machine', to: 'phone#answering_machine'
   post 'phone/handle_recorded_message', to: 'phone#handle_recorded_message'
   post '/sms', to: 'phone#sms'
-  get 'phone/index', to: 'phone#index'
 
   get '/auth/:provider/callback', to: 'sessions#create'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

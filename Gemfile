@@ -13,6 +13,7 @@ gem 'twilio-ruby'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'figaro'
+gem 'bootstrap-sass', '~> 3.3.6'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

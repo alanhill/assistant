@@ -1,0 +1,23 @@
+<tbody>
+    <% @phone_logs.each do |phone| %>
+    <tr>
+        <td>
+            <%= phone.incoming_type %>
+        </td>
+        <td>
+            <%= phone.phone_number %>
+        </td>
+        <td>
+            <%= phone.sid %>
+        </td>
+        <td>
+            <%= phone.status %>
+        </td>
+        <td>
+            <%= phone.from_city %>,
+            <%= phone.from_state %>,
+            <%= phone.from_country %>
+        </td>
+    </tr>
+    <% end %>
+</tbody>

@@ -1,79 +1,97 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-    <style>
-      body {
-        width: 500px;
-        padding: 10px;
-      }
+    <head>
+        <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+        <style>
+            body {
+                width: 500px;
+                height: 100%;
+                padding: 5px;
+                background-image: url('http://demos.creative-tim.com/get-shit-done/assets/img/carousel_red.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-clip: border-box;
+                background-size: 100%;
+                border: 1px solid;
+                border-color: rgba(44, 44, 44, 0.1);
+                border-radius: 50%;
+            }
 
-      h1 {
-        height: 18px;
-        text-align: center;
-        color: slategray;
-      }
+            h1 {
+                height: 18px;
+                text-align: center;
+                color: black;
+            }
 
-      .hello {
-        text-align: center;
-        color: darkgrey;
-        padding-top: 15px;
-      }
+            ol {
+                margin: 0 auto;
+                color: #ccc;
+                list-style-type: none;
+            }
 
-      ol {
-        margin: 0 auto;
-        color: #ccc;
-        list-style-type: none;
-      }
+            ol li {
+                position: relative;
+                font: bold italic 45px/1.5 Helvetica, Verdana, sans-serif;
+                margin-bottom: 20px;
+            }
 
-      ol li {
-        position: relative;
-        font: bold italic 45px/1.5 Helvetica, Verdana, sans-serif;
-        margin-bottom: 20px;
-      }
+            li p {
+                font: 12px/1.5 Helvetica, sans-serif;
+                padding-left: 60px;
+                color: black;
+            }
 
-      li p {
-        font: 12px/1.5 Helvetica, sans-serif;
-        padding-left: 60px;
-        color: #555;
-      }
+            span {
+                position: absolute;
+            }
 
-      span {
-        position: absolute;
-      }
+            p.title {
+                text-align: center;
+                font-size: 16px;
+            }
 
-      p.title {
-        text-align: center;
-        font-size: 16px;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Good morning!</h1>
-    <p class="hello">
-      Here's today's list of tasks. <b>Get shit done!</b>
-    </p>
-    <p>
-      <ol>
-        <% @to_dos.each do |task| %>
-        <li>
-          <span><%= task.id %>.</span>
-          <p class="title">
-            <b><%= task.title.capitalize %></b>
-          </p>
-          <li>
+            em.sub-title {
+                font-size: 12px;
+            }
+
+            .underlay {
+                padding-top: 100px;
+                margin-left: 50px;
+                background-color: rgba(44, 44, 44, 0.5);
+
+            }
+
+            .hello {
+                text-align: center;
+                color: black;
+                padding-top: 15px;
+                margin: 0 auto;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="underlay">
             <p>
-              <%= task.description %>
-            </p>
-          </li>
-          <li>
-            <p>
-              Due <%= task.due.strftime('%A %b %d at %l:%M%P') %>
-            </p>
-          </li>
-        </li>
-        <% end %>
-      </ol>
-    </p>
-  </body>
+                <ol>
+                    <% @to_dos.each do |task| %>
+                    <li>
+                        <span><%= task.id %>.</span>
+                        <p class="title">
+                            <b><%= task.title.capitalize %></b>
+                            <br/>
+                            <em class="sub-title">(Due
+                                <%= task.due.strftime('%A %b %d at %l:%M%P') %>)</em>
+                        </p>
+                    <li>
+                        <p>
+                            <%= task.description %>
+                        </p>
+                    </li>
+                </li>
+                <% end %>
+            </ol>
+        </p>
+    </div>
+</body>
 </html>

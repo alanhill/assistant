@@ -8,12 +8,13 @@
             <%= phone.phone_number %>
         </td>
         <td>
+            <%= phone.sid %>
+        </td>
+
+        <td>
         <% unless phone.body.blank? %>
           <%= phone.body %>
         <% end %>
-        </td>
-        <td>
-            <%= phone.sid %>
         </td>
         <td>
             <%= phone.status %>
